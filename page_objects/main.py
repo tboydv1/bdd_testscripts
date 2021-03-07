@@ -16,12 +16,14 @@ class LampFrontend:
     def login(self, user, pswd):
         self.site.login(user, pswd)
 
-    def click_trainees_tab(self):
+    def wait_action(self, element):
         web_wait = WebDriverWait(self.site.browse, 30)
-        self.site.browse.find_element_by_xpath(locators.trainees_tab).click()
-        web_wait.until(ec.element_to_be_clickable((By.XPATH, locators.trainees_page_heading)))
+        web_wait.until(ec.visibility_of_element_located((By.XPATH, element)))
 
-    def verify_page(self, id_, text):
+    def click(self, element):
+        self.site.browse.find_element_by_xpath(locators.trainees_tab).click()
+
+    def verify_action(self, id_, text):
         element = self.site.browse.find_element_by_xpath(id_)
 
         try:
@@ -29,6 +31,11 @@ class LampFrontend:
             print('Page is loaded successfully')
         except ValueError:
             print('Page load Failed!!!')
+
+    def insert(self, search_id, search_text):
+        self.site.browse.find_element_by_xpath(search_id).send_keys(search_text)
+
+
 
 # class LampFrontend:
 #     """
