@@ -200,7 +200,7 @@ def step_impl(context):
 
     # Click on the groups
     context.driver.click(locators.groups_tab_button)
-    context.driver.wait_action(locators.create_group_button)
+    context.driver.wait_action(locators.create_group_modal_button)
 
 
 @when("I click on the create group button")
@@ -208,7 +208,7 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    context.driver.click(locators.create_group_button)
+    context.driver.click(locators.create_group_modal_button)
     context.driver.wait_action(locators.create_group_modal)
 
 
@@ -226,19 +226,26 @@ def step_impl(context):
     context.driver.wait_action(locators.group_name_field)
 
     # Enter group name
-    context.driver.insert(locators.group_name_field, '')
+    context.driver.insert(locators.group_name_field, locators.generate_group_name)
+
 
 @then("System creates group successfully")
 def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    raise NotImplementedError(u'STEP: Then System create group successfully')
+    # Click on the create group button
+    context.driver.click(locators.create_group)
+
+    context.driver.verify_action(locators.snackbar_alert, 'Department Added Successfully')
 
 
-@step("Group is added to list of exitsting groups")
+@step("Group is added to list of existing groups")
 def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    raise NotImplementedError(u'STEP: And Group is added to list of created groups')
+    # Search for group
+    context.driver.insert(locators.group_search_field, locators.current_group_name)
+    context.driver.wait_action(locators.group_card)
+    context.driver.verify_action(locators.group_card, locators.current_group_name)

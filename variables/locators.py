@@ -1,6 +1,12 @@
 import random
 import string
 
+
+def generate():
+    return 'QA' + ''.join(random.choices(string.ascii_uppercase +
+                                         string.digits, k=7))
+
+
 home = "https://lamp-frontend.herokuapp.com"
 login_page_button = "//div[@id='app']/div/div[2]/div/header/div/div/div[@class='justify-lg-space-between']/div/button[1]"
 
@@ -57,10 +63,13 @@ assign_course_button = "//div[@id='app']/div[@role='document']/div/div/div/div/d
 
 # ======Groups page=======
 groups_tab_button = "//div[@id='app']//main[@class='v-main']/div/div/div/div[1]/div/div/div[@role='tablist']//div[@class='v-slide-group__content v-tabs-bar__content']/a[2]"
-create_group_button = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div[1]/div[3]/button[@role='button']"
+create_group_modal_button = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div[1]/div[3]/button[@role='button']"
 create_group_modal = "//div[@id='app']/div[@role='document']//div[.='Create a Group']"
 group_dropdown = "//div[@id='app']/div[@role='document']/div/div/div[@class='mx-16']/div[1]/div[@class='v-input__control']/div[@role='button']//i"
 select_other_groups = "//div[@id='app']//div[@role='listbox']/div[1]/div[@class='v-list-item__content']"
-group_name_field = "//div[@id='app']/div[@role='document']/div/div/div[@class='mx-16']/div[2]/div[@class='v-input__control']/div[@class='v-input__slot']"
-group_name = 'QA' + ''.join(random.choices(string.ascii_uppercase +
-                                           string.digits, k=7))
+group_name_field = "//div[@id='app']/div[@role='document']/div/div/div[@class='mx-16']//div[@class='v-text-field__slot']/input[@type='text']"
+generate_group_name = generate()
+current_group_name = generate_group_name
+create_group = "//div[@id='app']/div[@role='document']/div//div[@class='v-card__actions']/button[2]"
+group_search_field = "/html//div[@id='app']/div[@class='v-application--wrap']/main[@class='v-main']/div/div/div/div[2]/div/div[1]/div[1]/div//input[@type='text']"
+group_card = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div[2]/div/a[@href='/corporate/employee/departmentdetails/Test Test/103']"

@@ -37,4 +37,4 @@ Feature: Training Management
     When I click on the create group button
     And I Select or enter group name
     Then System creates group successfully
-    And Group is added to list of exitsting groups
+    And Group is added to list of existing groups
