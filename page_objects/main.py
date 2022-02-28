@@ -24,12 +24,18 @@ class LampFrontend:
     # def login(self, user, pswd):
     #     self.site.login(user, pswd)
 
-    def wait_action(self, element):
+    def wait_action(self, element, by="xpath"):
         web_wait = WebDriverWait(self.browse, 30)
-        web_wait.until(ec.visibility_of_element_located((By.XPATH, element)))
+        if by == "xpath":
+            web_wait.until(ec.visibility_of_element_located((By.XPATH, element)))
+        elif by == "css":
+            web_wait.until(ec.visibility_of_element_located((By.CSS_SELECTOR, element)))
 
-    def click(self, element):
-        self.browse.find_element_by_xpath(element).click()
+    def click(self, element, by="xpath"):
+        if by == 'xpath':
+            self.browse.find_element_by_xpath(element).click()
+        elif by == 'css':
+            self.browse.find_element_by_css_selector(element).click()
 
     def verify_action(self, id_, text):
         element = self.browse.find_element_by_xpath(id_)
@@ -39,11 +45,10 @@ class LampFrontend:
         except ValueError:
             print('Page load Failed!!!')
 
-
     def insert(self, field_id, search_text):
         self.browse.find_element_by_xpath(field_id).send_keys(search_text)
 
-    def verify_any_message(self, id_,  message_list):
+    def verify_any_message(self, id_, message_list):
         element = self.browse.find_element_by_xpath(id_)
 
         try:
@@ -55,7 +60,6 @@ class LampFrontend:
                 raise AssertionError
         except ValueError:
             print("False")
-
 
 # class LampFrontend:
 #     """

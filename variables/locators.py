@@ -3,7 +3,7 @@ import string
 
 
 def generate():
-    return 'QA' + ''.join(random.choices(string.ascii_uppercase +
+    return 'QA_' + ''.join(random.choices(string.ascii_uppercase +
                                          string.digits, k=7))
 
 
@@ -16,9 +16,8 @@ login_page_button = "//div[@id='app']/div/div[2]/div/header/div/div/div[@class='
 login_button = "//div[@id='app']//main[@class='v-main']/div/div/div/div[1]/div//form//button[@type='submit']/span[@class='v-btn__content']"
 email_field = '//input[@type="text"]'
 password_field = '//input[@placeholder="Password" and @type="password"]'
-email = 'tboydv1@gmail.com'
+email = 'nimotimrang@gmail.com'
 password = '123pass321'
-
 # =========================================
 # Dashboard                             #
 # =========================================
@@ -36,7 +35,7 @@ trainee_record = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2
 trainee_selection_checkbox = "/html//div[@id='app']/div[@class='v-application--wrap']/main[@class='v-main']/div[@class='v-main__wrap']/div/div/div[2]/div/div/div/div[3]/div[@class='v-data-table__wrapper']/table/tbody/tr[1]/td[1]/div[@class='v-data-table__checkbox v-simple-checkbox']/i"
 # ======== Search =========
 search_field = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div/div/div[1]/div[1]/div//div[@class='v-input__slot']//input[@type='text']"
-search_email = 'tboydv1@gmail.com'
+search_email = 'nimotimrang@gmail.com'
 search_result = "//div[@id='app']/div[@class='v-application--wrap']/main[@class='v-main']/div/div/div/div[2]/div/div/div/div[3]/div[@class='v-data-table__wrapper']/table/tbody"
 search_result_name = 'Chinonso okoroafor'
 search_result_role = 'HR'
@@ -63,7 +62,7 @@ assign_course_button = "//div[@id='app']/div[@role='document']/div/div/div/div/d
 
 # ======Groups page=======
 groups_tab_button = "//div[@id='app']//main[@class='v-main']/div/div/div/div[1]/div/div/div[@role='tablist']//div[@class='v-slide-group__content v-tabs-bar__content']/a[2]"
-create_group_modal_button = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div[1]/div[3]/button[@role='button']"
+create_group_modal_button = ".app-container.container.container--fluid > div > div:nth-of-type(2) button[role='button']"
 create_group_modal = "//div[@id='app']/div[@role='document']//div[.='Create a Group']"
 group_dropdown = "//div[@id='app']/div[@role='document']/div/div/div[@class='mx-16']/div[1]/div[@class='v-input__control']/div[@role='button']//i"
 select_other_groups = "//div[@id='app']//div[@role='listbox']/div[1]/div[@class='v-list-item__content']"
@@ -72,4 +71,4 @@ generate_group_name = generate()
 current_group_name = generate_group_name
 create_group = "//div[@id='app']/div[@role='document']/div//div[@class='v-card__actions']/button[2]"
 group_search_field = "/html//div[@id='app']/div[@class='v-application--wrap']/main[@class='v-main']/div/div/div/div[2]/div/div[1]/div[1]/div//input[@type='text']"
-group_card = "/html//div[@id='app']//main[@class='v-main']/div/div/div/div[2]/div/div[2]/div/a[@href='/corporate/employee/departmentdetails/Test Test/103']"
+group_card = "/html//div[@id='app']/div[@class='v-application--wrap']/main[@class='v-main']/div/div/div/div[2]/div/div[2]/div"

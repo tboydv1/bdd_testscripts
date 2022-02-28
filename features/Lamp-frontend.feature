@@ -10,12 +10,13 @@ Feature: Training Management
     And I click on the login button
     Then System should redirect me to the dashboard
 
+  @first
   Scenario: An admin I can view all trainees
     When Click on the trainees tab
     Then System should display trainees page
     And Display record of existing trainees
 
-
+  @Second
   Scenario: An admin can send an invite to a trainee
     Given That I am on the trainees page
     When I click on the invite button
@@ -23,7 +24,7 @@ Feature: Training Management
     And I click on the send invite button
     Then System should display an success page
 
-
+  @third
   Scenario: An Admin can assign courses to a trainee
     Given That I am on the trainees page
     And I have selected a trainee
@@ -32,9 +33,12 @@ Feature: Training Management
     And click the Assign course button
     Then System should display a success message
 
+  @fourth
   Scenario: An Admin can create a group
     Given That I am on the groups page
     When I click on the create group button
     And I Select or enter group name
     Then System creates group successfully
     And Group is added to list of existing groups
+
+  Scenario: An Admin can Enroll in a course
